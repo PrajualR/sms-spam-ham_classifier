@@ -67,8 +67,15 @@ def predict_spam(text, model, tfidf_vectorizer):
     # # Reshape for model input (single sample)
     # vector = vector.reshape(1, -1)
     # Make prediction
-    prediction = model.predict(vector)[0]
+    # prediction = model.predict(vector)[0]
     probabilities = model.predict_proba(vector)[0]
+    spam_prob = probabilities[1]
+
+    # Apply custom threshold
+    if spam_prob >= 0.25:
+        prediction = 1   # SPAM
+    else:
+        prediction = 0   # HAM
 
     result = {
         "is_spam": bool(prediction),
@@ -108,7 +115,7 @@ def main():
             placeholder="Type or paste your SMS message here..."
         )
 
-        if st.button("Check Message", type="primary", use_container_width=True):
+        if st.button("Check Message", type="primary", width="stretch"):
             if not message:
                 st.warning("Please enter a message to analyze.")
             else:

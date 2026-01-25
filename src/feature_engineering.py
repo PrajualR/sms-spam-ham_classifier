@@ -34,8 +34,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 #
 #     return np.array(features)
 
-def create_tfidf_features(df, max_features=1000):
-    vectorizer = TfidfVectorizer(max_features=max_features, ngram_range=(1, 2), min_df=2)
+def create_tfidf_features(df, max_features=5000):
+    vectorizer = TfidfVectorizer(max_features=max_features, ngram_range=(3, 5), min_df=2, analyzer="char")
     X_tfidf = vectorizer.fit_transform(df['clean_message'])
     return X_tfidf, vectorizer
 

@@ -23,7 +23,7 @@ spam-sms-classification/
 ├── models/                 # Saved models
 ├── src/
 │   ├── data_preprocessing.py  # Data cleaning and preprocessing
-│   ├── feature_engineering.py # Word2Vec and AvgWord2Vec implementation
+│   ├── feature_engineering.py # TFIDF features
 │   ├── model_training.py      # ML model implementation
 │   ├── app.py                 # Streamlit app
 │   └── api_service.py         # FastAPI service
