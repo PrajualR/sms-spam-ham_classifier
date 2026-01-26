@@ -5,7 +5,7 @@ import pickle
 import os
 import uvicorn
 
-from data_preprocessing import preprocess_text, download_nltk_resources
+from src.data_preprocessing import preprocess_text, download_nltk_resources
 from fastapi.middleware.cors import CORSMiddleware
 
 
